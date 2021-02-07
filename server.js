@@ -2,7 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 
 const authRoutes = require('./routes/auth');
-const contextRoutes = require('./routes/contexts');
+const contextRoutes = require('./routes/contacts');
 const userRoutes = require('./routes/users');
 
 const app = express();
@@ -14,7 +14,7 @@ app.use(express.json({ extended: false }));
 
 // Init routes
 app.use('/api/auth', authRoutes);
-app.use('/api/context', contextRoutes);
+app.use('/api/contacts', contextRoutes);
 app.use('/api/users', userRoutes);
 
 const PORT = process.env.PORT || 5000;
