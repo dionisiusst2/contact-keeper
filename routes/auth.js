@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const { getLoggedInUser, login } = require('../controllers/auth');
+const { logInValidationRules, validate } = require('../validators/user');
 
-const { getLoggedInUser, logIn } = require('../controllers/auth');
-
-router.route('/').get(getLoggedInUser).post(logIn);
+router
+  .route('/')
+  .get(getLoggedInUser)
+  .post(logInValidationRules(), validate, login);
 
 module.exports = router;

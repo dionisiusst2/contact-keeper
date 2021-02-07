@@ -1,6 +1,6 @@
 const { check, body, validationResult } = require('express-validator');
 
-const userValidationRules = () => {
+const createUserValidationRules = () => {
   return [
     check('name', 'Please add name').not().isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
@@ -11,7 +11,14 @@ const userValidationRules = () => {
   ];
 };
 
-const validateUser = (req, res, next) => {
+const logInValidationRules = () => {
+  return [
+    check('email', 'Please include a valid email').isEmail(),
+    check('password', 'Password is required').exists(),
+  ];
+};
+
+const validate = (req, res, next) => {
   const errors = validationResult(req);
 
   if (errors.isEmpty()) {
@@ -24,6 +31,7 @@ const validateUser = (req, res, next) => {
 };
 
 module.exports = {
-  userValidationRules,
-  validateUser,
+  createUserValidationRules,
+  logInValidationRules,
+  validate,
 };
