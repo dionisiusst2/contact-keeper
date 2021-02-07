@@ -1,9 +1,13 @@
 const express = require('express');
+const connectDB = require('./config/db');
+
 const authRoutes = require('./routes/auth');
 const contextRoutes = require('./routes/contexts');
 const userRoutes = require('./routes/users');
 
 const app = express();
+
+connectDB();
 
 app.use('/api/auth', authRoutes);
 app.use('/api/context', contextRoutes);
