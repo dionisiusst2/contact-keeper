@@ -9,6 +9,10 @@ const app = express();
 
 connectDB();
 
+// Init middleware
+app.use(express.json({ extended: false }));
+
+// Init routes
 app.use('/api/auth', authRoutes);
 app.use('/api/context', contextRoutes);
 app.use('/api/users', userRoutes);
