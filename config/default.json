@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://dion123:dion123@cluster0.ou7j0.mongodb.net/contact-keeper?retryWrites=true&w=majority",
-  "jwtSecret": "secret"
+  "mongoURI": "",
+  "jwtSecret": ""
 }
